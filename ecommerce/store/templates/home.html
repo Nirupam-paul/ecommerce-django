@@ -1,0 +1,73 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+Home
+{% endblock %}
+
+{% block content %}
+    <div class="container-fluid">
+        <div class="row">
+            <img src="{% static 'image/shop_bg.jpg' %}" height="200px" width="100%" alt="">
+        </div>
+    </div>
+    <div class="py-4">
+        <div class="container">
+            <div class="row">
+                <div class="col-10 mx-auto my-2 text-center">
+                    <h1 class="teat-capitalize font-weight-bold">
+                        {{category.name}}
+                    </h1>
+                </div>
+            </div>
+        </div>   
+    </div>
+
+    <div class="container">
+        <div class="col-container">
+        <div class="row">
+            {% for product in products %}
+                <div class="col-9 mx-auto col-md-6 col-lg-3">
+                    <div class="card mb-4" style="border-color: transparent;">
+                        <div class="p-4">
+                            <a href="{{product.get_url}}">
+                            <img src="{{product.image.url}}" class="card-img-top " height="250px" width="160px" alt="{{product.name}}">
+                            </a>
+                        </div>
+                        <!-- d-flex justify-content-between -->
+                        <div class="card-footer text-center" style="background: transparent; border-color: transparent;">
+                            <p class="font-weight-bold mb-0">
+                                {{product.name}}
+                            </p>
+                            <br>
+                            <h5 class="text-info font-italic mb-0">
+                                <span class="mr-1"><i class="fas fa-rupee-sign"></i></span>{{product.price}}
+                            </h5>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+
+        <div class="pagination justify-content-center">
+            <span class="step-links">
+                {% if products.has_previous %}
+                <a href="?page=1"><i class="fas fa-chevron-left"></i><i class="fas fa-chevron-left"></i></a>
+                <a href="?page={{ products.previous_page_number }}"><i class="fas fa-chevron-left ml-3"></i></a>
+                {% endif %}
+        
+                <span class="current">
+                    Page {{ products.number }} of {{ products.paginator.num_pages }}
+                </span>
+        
+                {% if products.has_next %}
+                <a href="?page={{ products.next_page_number }}"><i class="fas fa-chevron-right mr-3"></i></a>
+                <a href="?page={{ products.paginator.num_pages }}"><i class="fas fa-chevron-right"></i><i class="fas fa-chevron-right"></i></a>
+                {% endif %}
+            </span>
+        </div>
+
+        </div>
+    </div>
+    
+{% endblock %}
