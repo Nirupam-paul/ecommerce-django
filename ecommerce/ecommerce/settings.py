@@ -129,8 +129,8 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'static', 'staticfiles')
 MEDIA_URL ='/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'static', 'media')
 
-STRIPE_PUBLISHABLE_KEY = 'pk_test_51IDaNBGsJ5icwGruDFNv3OxYU30MZu51Obnp8nWrRALaxZFgv2u1iIg6sadfprYiaFGSNBTFi65c2pIMNhAcoTNf00fm9m6WRs'
-STRIPE_SECRET_KEY = 'sk_test_51IDaNBGsJ5icwGruSQrC4BR0fH92Gfy4cr1AUmNpCRPxYm4cBrAWD2RFMqsJzShCOhkwSuyNVE3cHpbiShwVnlmX00r76r6opK'
+STRIPE_PUBLISHABLE_KEY = ''
+STRIPE_SECRET_KEY = ''
 
 
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
